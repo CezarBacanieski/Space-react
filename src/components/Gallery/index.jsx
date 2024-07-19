@@ -3,7 +3,7 @@ import Titulo from '../Title';
 import Tags from './Tags';
 import Popular from './Popular';
 
-const ContainerGallery = styled.div`
+const GalleryContainer = styled.div`
   display: flex;
 `;
 
@@ -15,13 +15,13 @@ const Gallery = () => {
   return (
     <>
       <Tags />
-      <ContainerGallery>
+      <GalleryContainer>
         <FluidSection>
           <Titulo>Browse the gallery</Titulo>
         </FluidSection>
 
         <Popular />
-      </ContainerGallery>
+      </GalleryContainer>
     </>
   );
 };
