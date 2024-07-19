@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import GlobalStyles from './components/GlobalStyles';
 import Header from './components/Header';
 import SideBar from './components/SideBar';
+import Banner from './components/Banner';
+import bannerBackground from './assets/banner.png';
+import Gallery from './components/Gallery';
 
 const FundoGradiente = styled.div`
   background: linear-gradient(
@@ -16,12 +19,39 @@ const FundoGradiente = styled.div`
   min-height: 100vh;
 `;
 
+const AppContainer = styled.div`
+  width: 1440px;
+  margin: 0 auto;
+  max-width: 100%;
+`;
+
+const MainContainer = styled.main`
+  display: flex;
+  gap: 24px;
+`;
+const GalleryContent = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
 function App() {
   return (
     <FundoGradiente>
       <GlobalStyles />
-      <Header />
-      <SideBar />
+      <AppContainer>
+        <Header />
+        <MainContainer>
+          <SideBar />
+          <GalleryContent>
+            <Banner
+              text='The most complete gallery of space photos!'
+              backgroundImage={bannerBackground}
+            />
+            <Gallery />
+          </GalleryContent>
+        </MainContainer>
+      </AppContainer>
     </FundoGradiente>
   );
 }
