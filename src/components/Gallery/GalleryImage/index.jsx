@@ -56,7 +56,7 @@ const Footer = styled.footer`
 const Image = ({ photo, expanded = false }) => {
   return (
     <Figure $expanded={expanded} id={`photo-${photo.id}`}>
-      <img src={photo.path} alt={photo.alt} />
+      <img src={photo.path} alt={photo.alt || 'photo'} />
       <figcaption>
         <h3>{photo.titulo}</h3>
         <Footer>
