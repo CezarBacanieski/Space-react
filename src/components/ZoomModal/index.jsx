@@ -1,12 +1,16 @@
+import Image from '../Gallery/GalleryImage';
+
 const ZoomModal = ({ photo }) => {
   return (
     <>
-      <dialog open={!!photo}>
-        <p>Greetings, one and all!</p>
-        <form method='dialog'>
-          <button>OK</button>
-        </form>
-      </dialog>
+      {photo && (
+        <dialog open={!!photo}>
+          <Image photo={photo} expanded={true} />
+          <form method='dialog'>
+            <button>OK</button>
+          </form>
+        </dialog>
+      )}
     </>
   );
 };
