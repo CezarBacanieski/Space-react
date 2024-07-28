@@ -61,7 +61,7 @@ const App = () => {
           </GalleryContent>
         </MainContainer>
       </AppContainer>
-      <ZoomModal photo={selectedPhoto} />
+      <ZoomModal photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
     </FundoGradiente>
   );
 };
