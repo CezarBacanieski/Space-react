@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 
 import photos from './fotos.json';
 import { useState } from 'react';
+import ZoomModal from './components/ZoomModal';
 
 const FundoGradiente = styled.div`
   background: linear-gradient(
@@ -40,6 +41,7 @@ const GalleryContent = styled.section`
 
 const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   return (
     <FundoGradiente>
       <GlobalStyles />
@@ -52,10 +54,14 @@ const App = () => {
               text='The most complete gallery of space photos!'
               backgroundImage={bannerBackground}
             />
-            <Gallery photos={galleryPhotos} />
+            <Gallery
+              onPhotoSelected={(photo) => setSelectedPhoto(photo)}
+              photos={galleryPhotos}
+            />
           </GalleryContent>
         </MainContainer>
       </AppContainer>
+      <ZoomModal photo={selectedPhoto} />
     </FundoGradiente>
   );
 };
