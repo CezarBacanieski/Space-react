@@ -5,6 +5,7 @@ import SideBar from './components/SideBar';
 import Banner from './components/Banner';
 import bannerBackground from './assets/banner.png';
 import Gallery from './components/Gallery';
+
 import photos from './fotos.json';
 import { useState } from 'react';
 
