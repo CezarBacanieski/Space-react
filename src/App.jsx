@@ -44,7 +44,17 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const onSwitchingFavorites = (photo) => {
-    console.log('switching');
+    setGalleryPhotos(
+      galleryPhotos.map((galleryPhoto) => {
+        return {
+          ...galleryPhoto,
+          favorite:
+            galleryPhoto.id === photo.id
+              ? !photo.favorite
+              : galleryPhoto.favorite,
+        };
+      })
+    );
   };
 
   return (

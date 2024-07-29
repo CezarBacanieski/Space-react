@@ -59,6 +59,10 @@ const Image = ({
   onRequestedZoom,
   onSwitchingFavorites,
 }) => {
+  const favoriteIcon = photo.favorite
+    ? '/icons/favorito-ativo.png'
+    : '/icons/favorito.png';
+
   return (
     <Figure $expanded={expanded} id={`photo-${photo.id}`}>
       <img src={photo.path} alt={photo.alt || 'photo'} />
@@ -67,7 +71,7 @@ const Image = ({
         <Footer>
           <h4>{photo.fonte}</h4>
           <IconButton onClick={() => onSwitchingFavorites(photo)}>
-            <img src='/icons/favorito.png' alt='favorite icon' />
+            <img src={favoriteIcon} alt='favorite icon' />
           </IconButton>
           {!expanded && (
             <IconButton
