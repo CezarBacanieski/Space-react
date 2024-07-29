@@ -44,6 +44,12 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const onSwitchingFavorites = (photo) => {
+    if (photo.id === selectedPhoto?.id) {
+      setSelectedPhoto({
+        ...selectedPhoto,
+        favorite: !selectedPhoto.favorite,
+      });
+    }
     setGalleryPhotos(
       galleryPhotos.map((galleryPhoto) => {
         return {
@@ -77,7 +83,11 @@ const App = () => {
           </GalleryContent>
         </MainContainer>
       </AppContainer>
-      <ZoomModal photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
+      <ZoomModal
+        photo={selectedPhoto}
+        onClose={() => setSelectedPhoto(null)}
+        onSwitchingFavorites={onSwitchingFavorites}
+      />
     </FundoGradiente>
   );
 };
