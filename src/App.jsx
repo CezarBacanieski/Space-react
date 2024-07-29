@@ -42,6 +42,11 @@ const GalleryContent = styled.section`
 const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  const onSwitchingFavorites = (photo) => {
+    console.log('switching');
+  };
+
   return (
     <FundoGradiente>
       <GlobalStyles />
@@ -56,6 +61,7 @@ const App = () => {
             />
             <Gallery
               onPhotoSelected={(photo) => setSelectedPhoto(photo)}
+              onSwitchingFavorites={onSwitchingFavorites}
               photos={galleryPhotos}
             />
           </GalleryContent>

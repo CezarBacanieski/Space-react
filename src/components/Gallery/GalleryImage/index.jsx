@@ -53,7 +53,12 @@ const Footer = styled.footer`
   align-items: center;
 `;
 
-const Image = ({ photo, expanded = false, onRequestedZoom }) => {
+const Image = ({
+  photo,
+  expanded = false,
+  onRequestedZoom,
+  onSwitchingFavorites,
+}) => {
   return (
     <Figure $expanded={expanded} id={`photo-${photo.id}`}>
       <img src={photo.path} alt={photo.alt || 'photo'} />
@@ -61,7 +66,7 @@ const Image = ({ photo, expanded = false, onRequestedZoom }) => {
         <h3>{photo.titulo}</h3>
         <Footer>
           <h4>{photo.fonte}</h4>
-          <IconButton>
+          <IconButton onClick={() => onSwitchingFavorites(photo)}>
             <img src='/icons/favorito.png' alt='favorite icon' />
           </IconButton>
           {!expanded && (
